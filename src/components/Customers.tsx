@@ -63,9 +63,12 @@ export default function Customers() {
                 </button>
 
                 <span style={{ marginLeft: 8 }}>
-          Page <strong>{page.number + 1}</strong> of <strong>{Math.max(page.totalPages, 1)}</strong>
+                    Page <strong>{page.number + 1}</strong> of <strong>{Math.max(page.totalPages, 1)}</strong>
                     {" "}({page.totalElements} total)
-        </span>
+                </span>
+                <span style={{ marginLeft: 12, opacity: 0.7 }}>
+                  Sorted by: lastName, id
+                </span>
 
                 <label style={{ marginLeft: 12 }}>
                     Page size{" "}
@@ -93,7 +96,7 @@ export default function Customers() {
             <ul>
                 {page.content.map((c) => (
                     <li key={c.customerId}>
-                        {c.firstName} {c.lastName} — orders: {c.orderCount}
+                        {c.lastName}, {c.firstName} — orders: {c.orderCount}
                     </li>
                 ))}
             </ul>
