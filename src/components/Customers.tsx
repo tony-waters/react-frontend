@@ -52,6 +52,7 @@ export default function Customers() {
 
     return (
         <div style={{ display: "grid", gap: 12 }}>
+            <h1>Customers</h1>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
                 <Button onClick={() => setPageIndex(0)} disabled={prevDisabled}>
                     ⏮ First
@@ -94,18 +95,20 @@ export default function Customers() {
             {error && <div style={{ color: "crimson" }}>Error: {error}</div>}
             {loading && <div>Loading…</div>}
 
-            <table className="table">
+            <table class="table table-striped">
                 <thead>
                 <tr>
-                    <td>Last Name</td>
-                    <td>First Name</td>
-                    <td>Orders</td>
+                    <th>#</th>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>Orders</th>
                 </tr>
                 </thead>
                 <tbody>
                         {page.content.map((c) => (
                             <tr>
-                            <td key={c.customerId}>{c.lastName}</td>
+                                <td key={c.customerId}>{c.customerId}</td>
+                                <td>{c.lastName}</td>
                                 <td>{c.firstName}</td>
                                 <td>{c.orderCount}</td>
                             </tr>
