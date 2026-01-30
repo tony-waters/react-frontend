@@ -95,7 +95,7 @@ export default function Customers() {
             {error && <div style={{ color: "crimson" }}>Error: {error}</div>}
             {loading && <div>Loading…</div>}
 
-            <table class="table table-striped">
+            <table className="table table-striped">
                 <thead>
                 <tr>
                     <th>#</th>
