@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import type { Page } from "../types/page";
 import type { CustomerWithOrderCount } from "../types/customer";
+import Button from 'react-bootstrap/Button';
 
 const DEFAULT_SIZE = 10;
 
@@ -52,15 +53,15 @@ export default function Customers() {
     return (
         <div style={{ display: "grid", gap: 12 }}>
             <div style={{ display: "flex", gap: 8, alignItems: "center", flexWrap: "wrap" }}>
-                <button onClick={() => setPageIndex(0)} disabled={prevDisabled}>
+                <Button onClick={() => setPageIndex(0)} disabled={prevDisabled}>
                     ⏮ First
-                </button>
-                <button onClick={() => setPageIndex((p) => Math.max(0, p - 1))} disabled={prevDisabled}>
+                </Button>
+                <Button onClick={() => setPageIndex((p) => Math.max(0, p - 1))} disabled={prevDisabled}>
                     ◀ Prev
-                </button>
-                <button onClick={() => setPageIndex((p) => p + 1)} disabled={nextDisabled}>
+                </Button>
+                <Button onClick={() => setPageIndex((p) => p + 1)} disabled={nextDisabled}>
                     Next ▶
-                </button>
+                </Button>
 
                 <span style={{ marginLeft: 8 }}>
                     Page <strong>{page.number + 1}</strong> of <strong>{Math.max(page.totalPages, 1)}</strong>
@@ -93,13 +94,24 @@ export default function Customers() {
             {error && <div style={{ color: "crimson" }}>Error: {error}</div>}
             {loading && <div>Loading…</div>}
 
-            <ul>
-                {page.content.map((c) => (
-                    <li key={c.customerId}>
-                        {c.lastName}, {c.firstName} — orders: {c.orderCount}
-                    </li>
-                ))}
-            </ul>
+            <table className="table">
+                <thead>
+                <tr>
+                    <td>Last Name</td>
+                    <td>First Name</td>
+                    <td>Orders</td>
+                </tr>
+                </thead>
+                <tbody>
+                        {page.content.map((c) => (
+                            <tr>
+                            <td key={c.customerId}>{c.lastName}</td>
+                                <td>{c.firstName}</td>
+                                <td>{c.orderCount}</td>
+                            </tr>
+                        ))}
+                </tbody>
+            </table>
         </div>
     );
 }
