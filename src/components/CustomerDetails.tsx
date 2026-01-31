@@ -5,7 +5,7 @@ export default function CustomerDetails() {
     // console.log(params);
     return (
         <div className="wrapper">
-            <h1>Customer Details {params.id}</h1>
+            <h1>Customer Details #{params.id}</h1>
         </div>
     );
 }

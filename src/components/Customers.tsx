@@ -3,6 +3,7 @@ import type { Page } from "../types/Page";
 import type { CustomerWithOrderCount } from "../types/CustomerWithOrderCount";
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
+import Form from 'react-bootstrap/Form';
 import {NavLink, Outlet} from "react-router-dom";
 
 const DEFAULT_SIZE = 10;
@@ -70,13 +71,9 @@ export default function Customers() {
                     Page <strong>{page.number + 1}</strong> of <strong>{Math.max(page.totalPages, 1)}</strong>
                     {" "}({page.totalElements} total)
                 </span>
-                <span style={{ marginLeft: 12, opacity: 0.7 }}>
-                  Sorted by: lastName, id
-                </span>
 
                 <label style={{ marginLeft: 12 }}>
-                    Page size{" "}
-                    <select
+                    <Form.Select
                         value={pageSize}
                         onChange={(e) => {
                             const newSize = Number(e.target.value);
@@ -87,12 +84,16 @@ export default function Customers() {
                     >
                         {[5, 10, 20, 50].map((n) => (
                             <option key={n} value={n}>
-                                {n}
+                                {n} per page
                             </option>
                         ))}
-                    </select>
+                    </Form.Select>
                 </label>
             </div>
+
+            <span style={{ marginLeft: 12, opacity: 0.7 }}>
+                  Sorted by: lastName, id
+            </span>
 
             {error && <div style={{ color: "crimson" }}>Error: {error}</div>}
             {loading && <div>Loading…</div>}
@@ -100,7 +101,7 @@ export default function Customers() {
             <Table striped bordered hover>
                 <thead>
                 <tr>
-                    <th>#</th>
+                    <th># Id</th>
                     <th>Last Name</th>
                     <th>First Name</th>
                     <th>Orders</th>
@@ -114,7 +115,7 @@ export default function Customers() {
                                         key={c.customerId}
                                         to={`/customers/${c.customerId}`}
                                         className={({isActive}) => {
-                                            return isActive ? 'link-primary link-opacity-100 link-underlined-opacity-100' : 'text-decoration-none link-opacity-75';
+                                            return isActive ? 'link-primary link-opacity-100 link-underlined-opacity-100' : 'text-decoration-none';
                                         }}
                                     >
                                         {c.lastName}
