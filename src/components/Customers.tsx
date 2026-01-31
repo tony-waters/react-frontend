@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import type { Page } from "../types/page";
-import type { CustomerWithOrderCount } from "../types/customer";
+import type { Page } from "../types/Page";
+import type { CustomerWithOrderCount } from "../types/CustomerWithOrderCount";
 import Button from 'react-bootstrap/Button';
 
 const DEFAULT_SIZE = 10;
