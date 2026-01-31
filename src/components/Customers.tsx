@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Page } from "../types/Page";
 import type { CustomerWithOrderCount } from "../types/CustomerWithOrderCount";
 import Button from 'react-bootstrap/Button';
+import {NavLink, Outlet} from "react-router-dom";
 
 const DEFAULT_SIZE = 10;
 
@@ -108,13 +109,23 @@ export default function Customers() {
                         {page.content.map((c) => (
                             <tr>
                                 <td key={c.customerId}>{c.customerId}</td>
-                                <td>{c.lastName}</td>
+                                <td><NavLink
+                                        key={c.customerId}
+                                        to={`/customers/${c.customerId}`}
+                                        className={({isActive}) => {
+                                            return isActive ? 'text-primary-700' : '';
+                                        }}
+                                    >
+                                        {c.lastName}
+                                    </NavLink>
+                                </td>
                                 <td>{c.firstName}</td>
                                 <td>{c.orderCount}</td>
                             </tr>
                         ))}
                 </tbody>
             </table>
+            <Outlet />
         </div>
     );
 }

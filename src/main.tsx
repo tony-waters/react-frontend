@@ -17,12 +17,15 @@ const router = createBrowserRouter([
     },
     {
         path: "/customers",
-        element: <Customers />
+        element: <Customers />,
+        children: [
+            {
+                path: "/customers/:id",
+                element: <CustomerDetails />
+            }
+        ]
     },
-    {
-        path: "/customers/:id",
-        element: <CustomerDetails />
-    }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
