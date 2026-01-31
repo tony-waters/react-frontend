@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { Page } from "../types/Page";
 import type { CustomerWithOrderCount } from "../types/CustomerWithOrderCount";
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 import {NavLink, Outlet} from "react-router-dom";
 
 const DEFAULT_SIZE = 10;
@@ -96,7 +97,7 @@ export default function Customers() {
             {error && <div style={{ color: "crimson" }}>Error: {error}</div>}
             {loading && <div>Loading…</div>}
 
-            <table className="table table-striped">
+            <Table striped bordered hover>
                 <thead>
                 <tr>
                     <th>#</th>
@@ -113,7 +114,7 @@ export default function Customers() {
                                         key={c.customerId}
                                         to={`/customers/${c.customerId}`}
                                         className={({isActive}) => {
-                                            return isActive ? 'text-primary-700' : '';
+                                            return isActive ? 'link-primary link-opacity-100 link-underlined-opacity-100' : 'text-decoration-none link-opacity-75';
                                         }}
                                     >
                                         {c.lastName}
@@ -124,7 +125,7 @@ export default function Customers() {
                             </tr>
                         ))}
                 </tbody>
-            </table>
+            </Table>
             <Outlet />
         </div>
     );

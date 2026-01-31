@@ -6,7 +6,8 @@ import CustomerDetails from "./components/CustomerDetails";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 
-// import "../css/main.css"
+import "./css/main.css"
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const router = createBrowserRouter([
