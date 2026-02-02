@@ -105,6 +105,8 @@ export default function Customers() {
                     <th>Last Name</th>
                     <th>First Name</th>
                     <th>Orders</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -123,6 +125,8 @@ export default function Customers() {
                                 </td>
                                 <td>{c.firstName}</td>
                                 <td>{c.orderCount}</td>
+                                <td>Edit</td>
+                                <td>Delete</td>
                             </tr>
                         ))}
                 </tbody>
