@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import {NavLink, Outlet} from "react-router-dom";
+import Navigation from "./Navigation";
 
 const DEFAULT_SIZE = 10;
 
@@ -133,6 +134,7 @@ export default function Customers() {
                         ))}
                 </tbody>
             </Table>
+            <Button>Add Customer</Button>
             <Outlet />
         </div>
     );
