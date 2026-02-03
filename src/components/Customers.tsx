@@ -125,7 +125,9 @@ export default function Customers() {
                                 </td>
                                 <td>{c.firstName}</td>
                                 <td>{c.orderCount}</td>
-                                <td>Edit</td>
+                                <td>
+                                    <NavLink key={c.customerId} to={`/customers/${c.customerId}/edit`}>Edit</NavLink>
+                                </td>
                                 <td>Delete</td>
                             </tr>
                         ))}

@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Customers from "./components/Customers";
 import CustomerDetails from "./components/CustomerDetails";
+import CustomerDetailsForm from "./components/CustomerDetailsForm";
 import Home from "./components/Home";
 import NotFound from "./components/NotFound";
 
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
             {
                 path: "/customers/:id",
                 element: <CustomerDetails />
+            },
+            {
+                path: "/customers/:id/edit",
+                element: <CustomerDetailsForm />
             }
         ]
     },

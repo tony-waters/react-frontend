@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import {NavLink, useParams} from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 
 export default function CustomerDetails() {
@@ -6,7 +6,11 @@ export default function CustomerDetails() {
     // console.log(params);
     return (
         <div className="wrapper">
-            <h1>Customer Details #{params.id} <Button>Edit</Button></h1>
+            <h1>
+                Customer Details #{params.id}
+                <NavLink key={params.id} to={`/customers/${params.id}/edit`}>Edit</NavLink>
+            </h1>
+
         </div>
     );
 }
