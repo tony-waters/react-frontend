@@ -10,12 +10,13 @@ import NotFound from "./components/NotFound";
 
 import "./css/main.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navigation from "./components/Navigation";
 
 // Layout component
 function Layout() {
     return (
         <div>
-            <header>Header</header>
+            <header><Navigation /></header>
             <main>
                 <Outlet /> {/* Child routes render here */}
             </main>
