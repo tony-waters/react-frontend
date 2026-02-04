@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import type { Page } from "../types/Page";
-import type { CustomerWithOrderCount } from "../types/CustomerWithOrderCount";
+import {useEffect, useState} from "react";
+import type {Page} from "../types/Page";
+import type {CustomerWithOrderCount} from "../types/CustomerWithOrderCount";
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
 import Form from 'react-bootstrap/Form';
 import {NavLink, Outlet} from "react-router-dom";
-import Navigation from "./Navigation";
 
-const DEFAULT_SIZE = 10;
+const DEFAULT_SIZE = 5;
 
 export default function Customers() {
     const [pageIndex, setPageIndex] = useState(0);
